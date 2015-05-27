@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en" ng-app>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width initial-scale=1 maximum-scale=1 user-scalable=no">
+<title></title>
+<link rel="stylesheet" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" />
+
+</head>
+
+<body>
+
+<div class="container">
+    <h2 class="text-center">input 的 ng大众属性</h2>
+    <p class="alert alert-danger" >以下的貌似还不能用啊 console里一堆bug</p>
+<pre>&lt;input class="form-control" 
+    ng-model=""
+    name=""
+    required=""
+    ng-required=""
+    ng-minlength=""
+    ng-maxlength=""
+    ng-pattern=""
+    ng-change="" />
+</pre>
+
+<hr />
+<h3>测试一下</h3>
+<div class="well" ng-controller="Ctrl">
+    <form name="myForm" >
+        User name: <input type="text" name="userName" ng-model="user.name" required class="form-control" />
+        <span class="text-danger" ng-show="myForm.userName.$error.required">Required</span><br />
+        Last name: <input type="text" name="lastName" ng-model="user.lastName" ng-minlength="3" ng-maxlength="10" class="form-control" />
+        <span class="text-danger" ng-show="myForm.lastName.$error.minlength">Too short!</span>
+        <span class="text-danger" ng-show="myForm.lastName.$error.maxlength">Too long!</span>
+    </form>
+    <br />
+    <div class="alert alert-info">
+        user = {{user}}<br />
+        myForm.userName.$valid = {{myForm.userName.$valid | json}}<br />
+        myForm.userName.$error = {{myForm.userName.$error}}<br />
+        myForm.lastName.$valid = {{myForm.lastName.$valid}}<br />
+        myForm.lastName.$error = {{myForm.lastName.$error}}<br />
+        myForm.$valid = {{myForm.$valid}}<br />
+        myForm.$error.required = {{!!myForm.$error.required}}<br />
+        myForm.$error.minlength = {{!!myForm.$error.minlength}}<br />
+        myForm.$error.maxlength = {{!!myForm.$error.maxlength}}<br />
+    </div>
+</div>
+
+</div>
+
+
+
+<script src="js/angular.min.js"></script>
+<script type="text/javascript">
+'use strict'
+function Ctrl($scope){
+    $scope.user = {name: 'guest', lastName: 'visitor'}
+}
+
+</script>
+
+</body>
+</html>

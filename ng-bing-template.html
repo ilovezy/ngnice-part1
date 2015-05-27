@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en" ng-app>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width initial-scale=1 maximum-scale=1 user-scalable=no">
+<title></title>
+<link rel="stylesheet" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" />
+
+</head>
+
+<body>
+
+<div class="container" ng-controller="Ctrl">
+    <h2 class="text-center">ngBindTemplate <small>ng-bind-template可以包含多个 { {  } } 解释器的</small></h2>
+    Salutation: <input type="text" ng-model="salutation" class="form-control" /><br />
+    Name: <input type="text" ng-model="name" class="form-control" /><br />
+    <pre ng-bind-template="{{salutation}} {{name}} !"></pre>
+    <pre>{{salutation}} {{name}} !</pre>
+</div>
+
+<script src="js/angular.min.js"></script>
+<script type="text/javascript">
+'use strict'
+
+function Ctrl($scope){
+    $scope.salutation = 'hello'
+    $scope.name = 'cc'
+}
+
+</script>
+
+</body>
+</html>

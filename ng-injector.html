@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en" ng-app>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width initial-scale=1 maximum-scale=1 user-scalable=no">
+<title></title>
+<link rel="stylesheet" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" />
+
+</head>
+
+<body>
+
+<div class="container">
+    <h2 class="text-center"></h2>
+
+
+</div>
+
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/angular.min.js"></script>
+<script type="text/javascript">
+'use strict' 
+
+/*
+var $injector = angular.injector(['ng'])
+
+$injector.invoke(function($rootScope, $compile, $document){
+    $compile($document)($rootScope)
+    $rootScope.$digest()
+})
+*/
+
+// 下面一个 html 片段包含 ng-controller 的指令的玩意被 jquery添加到 body里去了，我们可以把他添加到当前的 angualrJS scope里去
+var $div = $('<div ng-controller="myCtrl">{{content.label}}</div>')
+
+$(document.body).append($div)
+angular.element(document).injector().invoke(function($compile){
+    var scope = angular.element($div).scope()
+    
+    $compile($div)(scope)
+})
+
+</script>
+
+</body>
+</html>

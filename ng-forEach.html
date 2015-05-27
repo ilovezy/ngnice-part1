@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en" ng-app>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width initial-scale=1 maximum-scale=1 user-scalable=no">
+<title></title>
+<link rel="stylesheet" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" />
+
+</head>
+
+<body>
+
+<div class="container">
+    <h2 class="text-center"></h2>
+
+
+</div>
+
+<script src="js/angular.min.js"></script>
+<script type="text/javascript">
+'use strict'
+
+var values = {name: 'misko', gender: 'male'}, 
+    log = []
+
+angular.forEach(values, function(value, key){
+    this.push(key + ': ' + value)
+}, log)
+expect(log).toEqual(['name: misko', 'gender: male'])
+
+</script>
+
+</body>
+</html>

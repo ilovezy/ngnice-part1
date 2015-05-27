@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1; user-scalable=no">
+<title>ng-animate</title>
+<link rel="stylesheet" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" />
+<style>
+.animate-show-hide{
+    padding: 10px;
+    border: 1px solid black;
+    background: white
+}
+.animate-show-hide.ng-hide-add, 
+.animate-show-hide.ng-hide-remove{
+    -webkit-transition: all linear .5s;
+    -moz-transition: all linear .5s;
+    -o-transition: all linear .5s;
+    transition: all linear .5s;
+    display: block!important    
+}
+.animate-show-hide.ng-hide-add.ng-hide-add-active, 
+.animate-show-hide.ng-hide-remove{
+    opacity: 0
+}
+.animate-show-hide.ng-hide-add, 
+.animate-show-hide.ng-hide-remove.ng-hide-remove-active{
+    opacity: 1
+}
+</style>
+
+</head>
+
+<body ng-app>
+
+<div class="container" ng-init="checked=true">
+    <h2 class="text-center"> </h2>
+    <label>
+        <input type="checkbox" ng-model="checked" style="float: left; margin-right: 10px" />
+    </label>
+    <div class="check-element animate-show-hide" ng-show="checked" style="clear: both">
+        可见
+    </div>
+</div>
+
+<script src="js/angular.min.js"></script>
+<script src="angular-1.2.20/angular-animate.min.js"></script>
+
+<script type="text/javascript">
+'use strict'
+
+
+</script>
+
+</body>
+</html>
+        
+
+
+

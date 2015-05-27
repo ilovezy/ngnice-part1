@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en" ng-app>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width initial-scale=1 maximum-scale=1 user-scalable=no">
+<title>ng-controller</title>
+<link rel="stylesheet" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" />
+
+</head>
+
+<body>
+
+<div class="container">
+    <h2 class="text-center">MVC 基石 ng-controller</h2>
+    <div class="" ng-controller="SettingsController as settings">
+        Name:  <input type="text" ng-model="settings.name" class="form-control" />
+        <a href="" ng-click="settings.greet()">greet</a><br />
+        Contact: 
+        <ul>
+            <li ng-repeat="contact in settings.contacts">
+                <select ng-model="contact.type">
+                    <option>phone</option>
+                    <option>email</option>
+                </select>
+                <input type="text" ng-model="contact.value" class="form-control" />
+                <a href="" class="btn btn-success"  ng-click="settings.clearContact(contact)">clear</a>
+                <a href="" class="btn btn-info"  ng-click="settings.removeContact(contact)">remove</a>
+            </li>
+            <li><a href="" class="btn btn-warning"  ng-click="settings.addContact()">add</a></li>
+        </ul>
+        
+    </div>
+    
+</div>
+
+
+<script src="js/angular.min.js"></script>
+<script type="text/javascript">
+'use strict'
+
+function SettingsController(){
+    this.name = 'John Smith'
+    this.contacts = [
+        {type: 'phone', value: '408 555 1221'}, 
+        {type: 'email', value: 'john.smith@example.org'}
+    ]
+}
+
+SettingsController.prototype.greet = function(){
+    alert(this.name)
+}
+
+SettingsController.prototype.addContact = function(){
+    this.contacts.push({type: 'email', value: 'yourname@example.org'})
+}
+
+SettingsController.prototype.removeContact = function(contactToRemove){
+    var index = this.contacts.indexOf(contactToRemove)
+    
+    this.contacts.splice(index, 1)
+}
+
+SettingsController.prototype.clearContact = function(contact){
+    contact.type = 'phone'
+    contact.value = ''
+}
+
+</script>
+
+</body>
+</html>

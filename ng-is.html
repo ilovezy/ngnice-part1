@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en" ng-app>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width initial-scale=1 maximum-scale=1 user-scalable=no">
+<title></title>
+<link rel="stylesheet" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" />
+
+</head>
+
+<body>
+
+<div class="container">
+    <h2 class="text-center">angualr.is* 系列，很无聊的封装，也许有用吧</h2>
+    <pre id="hello"></pre>
+
+</div>
+
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/angular.min.js"></script>
+<script type="text/javascript">
+'use strict'
+
+var arr = [1, 2, 3], 
+    a, 
+    b = document.getElementById('hello'), 
+    b1 = $('#hello')
+
+console.log(angular.isArray(arr))
+console.log(angular.isDefined(a)) // 被赋值了才有用诶
+console.log(angular.isElement(b)) // js 或jquery 获取的元素都行
+console.log(angular.isElement(b1))
+
+var str = 'ehHFDAIDF012313'
+console.log(angular.lowercase(str)) // 简单的玩意，源码里做了兼容
+console.log(angular.uppercase(str))
+
+console.log(angular.toJson(arr, 4)) // 第二个参数为缩减，其实封装了js原生的serilize
+
+// angular.module
+// create a new module
+/*
+var myModule = angular.module('myModule', [])
+
+myModule.value('appName', 'myCoolApp')
+myModule.config(['$locationProvider', function($locationProvider){
+    $locationProvider.hashPrefix('!')
+}])
+
+// then youcan create an injector and load your modules like this
+var injector = angular.injector(['ng', 'myModule'])
+*/
+</script>
+
+</body>
+</html>

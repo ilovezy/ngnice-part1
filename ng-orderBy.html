@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en" ng-app>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width initial-scale=1 maximum-scale=1 user-scalable=no">
+<title>orderBy</title>
+<link rel="stylesheet" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" />
+<style>
+@media(max-width: 768px){
+    .container{
+        padding-left: 10px; padding-right: 10px
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container" ng-controller="Ctrl">
+    <h2 class="text-center">orderBy</h2>       
+    <pre>Sorting predicate = {{predicate}}; reverse = {{reverse}}</pre>
+    <hr />
+    <a href="" ng-click="predicate=''" class="btn btn-warning" >unsorted</a>
+    <table class="table table-strped table-hover table-responsive">
+        <tr>
+            <th>
+                <a href="" ng-click="predicate = 'name'; reverse = false">Name</a>
+                (<a href="" ng-click="predicate = '-name'; reverse = false">^</a>)
+            </th>
+            <th><a href="" ng-click="predicate = 'phone'; reverse = !reverse">Phone Number</a></th>
+            <th><a href="" ng-click="predicate = 'age'; reverse = !reverse">Age</a></th>
+        </tr>
+        <tr ng-repeat="friend in friends | orderBy:predicate:reverse">
+            <td>{{friend.name}}</td>
+            <td>{{friend.phone}}</td>
+            <td>{{friend.age}}</td>
+        </tr>
+    </table>
+    
+</div>
+
+<script src="js/angular.min.js"></script>
+<script type="text/javascript">
+'use strict'
+
+function Ctrl($scope){
+    $scope.friends = [
+        {name: 'John', phone: '555-1212', age: 10},     
+        {name: 'Mary', phone: '555-9874', age: 19},     
+        {name: 'Mike', phone: '555-4321', age: 21},     
+        {name: 'Adam', phone: '555-5678', age: 35},     
+        {name: 'Julie', phone: '555-8765', age: 29}    
+    ]
+    $scope.predicate = '-age'
+}
+
+</script>
+
+</body>
+</html>

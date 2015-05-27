@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en" ng-app>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width initial-scale=1 maximum-scale=1 user-scalable=no">
+<title></title>
+<link rel="stylesheet" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" />
+<style>
+.my-form{
+    -webkit-transition: all linear .5s;
+    transition: all linear .5s;
+    background: transparent
+}
+input.ng-invalid{
+    background: #e4b9b9
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+    <h2 class="text-center">form</h2>
+    <form name="myForm" style="padding: 10px" ng-controller="Ctrl" class="my-form">
+        userType: <input type="text" required name="input" ng-model="userType" class="form-control ng-valid" />
+        userType = {{userType}} <br />
+        myForm.input.$valid = {{myForm.input.$valid}} <br />
+        myForm.input.$error = {{myForm.input.$error}} <br />
+        myForm.$valid = {{myForm.$valid}} <br />
+        myForm.$error.required = {{!!myForm.$error.required}}
+    </form>
+<F5>
+</div>
+
+<script src="js/angular.min.js"></script>
+<script type="text/javascript">
+'use strict'
+
+function Ctrl($scope){
+    $scope.userType = 'guest'
+}
+
+</script>
+
+</body>
+</html>

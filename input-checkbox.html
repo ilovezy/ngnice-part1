@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en" ng-app>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width initial-scale=1 maximum-scale=1 user-scalable=no">
+<title></title>
+<link rel="stylesheet" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" />
+
+</head>
+
+<body>
+
+<div class="container">
+    <h2 class="text-center">checkbox</h2>
+<!--
+&lt;input type="checkbox" 
+    ng-model=""
+    name=""
+    ng-true-value=""
+    ng-false-value=""
+    ng-change="" />
+-->
+
+<form name="myForm" ng-controller="Ctrl">
+    value1: <input type="checkbox" ng-model="value1" /><br />
+    value2: <input type="checkbox" ng-model="value2" ng-true-value="GOOD" ng-false-value="FUCK NO" /><br />
+    value1 = {{value1}} <br />
+    value2 = {{value2}}
+</form>
+
+</div>
+
+<script src="js/angular.min.js"></script>
+<script type="text/javascript">
+'use strict'
+function Ctrl($scope){
+    $scope.value1 = true
+    $scope.value2 = 'GOOD'
+}
+
+</script>
+
+</body>
+</html> 

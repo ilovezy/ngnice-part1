@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en" ng-app="multi-bootstrap">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1; user-scalable=no">
+<title>ng-bootstrap</title>
+<link rel="stylesheet" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" />
+
+</head>
+
+<body>
+
+<div class="container" ng-controller="BrokenTable">
+    <h2 class="text-center">hello world </h2>
+    <table class="table table-strped table-hover">
+        <tr><th ng-repeat="heading in headings">{{ heading }}</th></tr>
+        <tr ng-repeat="filling in fillings">
+            <td ng-repeat="fill in filling">{{ fill }}</td>
+        </tr>
+    </table>
+</div>
+
+<script src="js/angular.min.js"></script>
+<script type="text/javascript">
+'use strict'
+
+var app = angular.module('multi-bootstrap', [])
+
+app.controller('BrokenTable', function($scope){
+    $scope.headings = ['one', 'tow', 'three']
+    $scope.fillings = [[1, 2, 3], ['A', 'B', 'C'], [7, 8, 9]]
+})
+
+</script>
+
+</body>
+</html>
+        
+
+
+

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en" ng-app>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1; user-scalable=no">
+<title></title>
+<link rel="stylesheet" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" />
+
+</head>
+
+<body>
+
+<div class="container" ng-controller="Ctrl">
+    <h2 class="text-center">ng-copy</h2>
+
+    <h3>用法</h3>
+    <pre>angular.copy(source, [destination])</pre>
+    <p class="alert alert-success" >1、如果 [destination] 目标对象或数组没有提供，那么就会创建一个 obj 或 arr 的copy
+    <br />
+    2、如果提供了 [destination] 那么这个 destination 原有的内容全都会被删除，用拷贝过去的东西填充了。
+    </p>
+    <hr />
+    <form novalidate class="simple-form">
+        Name: <input type="text" ng-model="user.name" class="form-control" />
+        E-mail: <input type="email" ng-model="user.email" class="form-control" />
+        <br />
+        Gender: 
+        <label><input type="radio" ng-model="user.gender" value="male" />male</label>
+        <label><input type="radio" ng-model="user.gender" value="female" />female</label>
+        <button ng-click="reset()" class="btn btn-default" >RESET</button>
+        <button ng-click="update(user)" class="btn btn-success" >SAVE</button>
+    </form>
+    <br />
+    <pre>form = {{ user | json | uppercase }}</pre>
+    <pre>master = {{ master | json | lowercase }}</pre>
+</div>
+
+<script src="js/angular.min.js"></script>
+<script type="text/javascript">
+'use strict'
+
+function Ctrl($scope){
+    $scope.master = {}
+    $scope.update = function(user){
+        $scope.master = angular.copy(user)
+    }
+    $scope.reset = function(){
+        angular.copy($scope.master, $scope.user)
+    }
+    $scope.reset()
+}
+
+
+</script>
+
+</body>
+</html>
+        
+
+
+

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en" ng-app>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width initial-scale=1 maximum-scale=1 user-scalable=no">
+<title>ng-class-even</title>
+<link rel="stylesheet" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" />
+
+</head>
+
+<body>
+
+<div class="container">
+    <h2 class="text-center">ng-class-even(odd)</h2>
+    <p class="alert alert-info">注意 ng-class-even(odd) 只能在 ng-repeat 作用域下使用，而且要注意里面有个 ' ' 单引号 </p>
+    <ul ng-init="names=['Jhon', 'Mary', 'Cate', 'Suz']">
+        <li ng-repeat="name in names">
+            <span ng-class-odd="'text-danger'" ng-class-even="'text-info'">{{name}}</span>
+        </li>
+    </ul>
+
+</div>
+
+<script src="js/angular.min.js"></script>
+<script type="text/javascript">
+'use strict'
+
+
+</script>
+
+</body>
+</html>

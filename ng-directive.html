@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1; user-scalable=no">
+<title>ng-directive</title>
+<link rel="stylesheet" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" />
+
+</head>
+
+<body ng-app="docsSimpleDirective">
+
+<div class="container">
+    <h2 class="text-center">指令的写法有很多</h2>
+    <p>只是最终 *- 前缀，：- _ 都会被转化为小驼峰命名法而已，最好只用 - ，不会混淆</p>
+    <input type="text" ng-model="foo" class="form-control" placeholder="ng-model='foo'" />
+    <input type="text" data-ng:model="foo" class="form-control" placeholder="data-ng:model='foo'" /> 
+    <input type="text" data-ng-model="foo" class="form-control" placeholder="data-ng-model='foo'" />   
+    <input type="text" data-ng_model="foo" class="form-control" placeholder="data-ng_model='foo'" />
+    <div class="alert alert-info">
+        {{ foo }}
+    </div>
+
+    <hr />
+    <h3>ACEM 四种指令用法咯，最好只用 AE</h3>
+    <my-dir></my-dir>
+    <span my-dir="exp"></span>
+    <!-- directive: my-dir exp -->
+    <span class="my-dir: exp"></span>
+
+    <hr />
+    <a ng-href="img/{{username}}.jpg">hello {{username = 1}}</a>
+    <hr />
+</div>
+    <div class="well" ng-controller="Ctrl">
+        <div class="" my-customer>
+            
+        </div>
+    </div>
+
+<script src="js/angular.min.js"></script>
+<script type="text/javascript">
+'use strict'
+
+angular.module('docsSimpleDirective', [])
+    .controller('Ctrl', function($scope){
+        $scope.customer = {
+            name: 'Naomi', 
+            address: '1600 amphitheatre'        
+        }
+    })
+    .directive('myCustomer', function(){
+        return {
+            template: '姓名：地址：'
+        } 
+    })
+
+</script>
+
+</body>
+</html>
+        
+
+
+

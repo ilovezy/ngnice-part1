@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en" ng-app>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width initial-scale=1 maximum-scale=1 user-scalable=no">
+<title>ng-class</title>
+<link rel="stylesheet" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" />
+<style>
+.strike{
+    text-decoration: line-through
+}
+.bold{
+    font-weight: bold
+}
+.red{
+    color: red
+}
+/* animations */
+.base-class{
+    -webkit-transition: all cubic-bezier(.25, .46, .45, .94) .5s;
+    transition: all cubic-bezier(.25, .46, .45, .94) .5s
+}
+.base-class.my-class{
+    color: red;
+    font-size: 3em
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+    <h2 class="text-center">ngClass</h2>
+    <p class="alert alert-info">输入字符串就行啦，例如 text-danger 之类的</p>
+    <p ng-class="{strike: deleted, bold: important, red: error}">Map Syntax Example</p>
+    <label><input type="checkbox" ng-model="deleted" /> deleted (apply 'strike' class)</label><br />
+    <label><input type="checkbox" ng-model="important" /> important (apply 'bold' class)</label><br />
+    <label><input type="checkbox" ng-model="error" /> error (apply 'red' class)</label><br />
+    <hr />
+    <p ng-class="style">使用字符串形式</p>
+    <input type="text" ng-model="style" placeholder="Type: bold strike red" class="form-control" />
+    <hr />
+    <p ng-class="[style1, style2, style3]">使用数组形式</p> 
+    <input ng-model="style1" placeholder="Type: bold, strike or red" class="form-control" /><br />
+    <input ng-model="style2" placeholder="Type: bold, strike or red" class="form-control" /><br />
+    <input ng-model="style3" placeholder="Type: bold, strike or red" class="form-control" /><br />
+
+    <hr />
+    <h3>animations <small>angular的动画绝大多数都要依靠 css3 transition 来实现，感觉不靠谱</small></h3>
+    <input type="button" class="btn btn-success"  value="set" ng-click="myVar='my-class'" />
+    <input type="button" class="btn btn-default" value="clear" ng-click="myVar=''" />
+    <br />
+    <span class="base-class" ng-class="myVar">Sample Text</span>
+</div>
+
+<script src="js/angular.min.js"></script>
+<script type="text/javascript">
+'use strict'
+
+
+</script>
+
+</body>
+</html>
